@@ -1,4 +1,4 @@
-from env import config
+from env.env import config
 from telegram import Update
 from telegram.ext import (MessageHandler, 
                           filters, 
@@ -6,6 +6,8 @@ from telegram.ext import (MessageHandler,
                           MessageHandler)
 
 BOT_USERNAME = config("BOT_USERNAME", default=None)
+
+from utils.convert_audio import convert_audio
 
 def handle_response(text):
     cleaned_text = text.lower()
@@ -41,8 +43,10 @@ async def test(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print("AUDIO RECIEVED")
     new_file = await context.bot.get_file(update.message.voice.file_id)
     download_file = await new_file.download_to_drive(f"media/voice_note.ogg")
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="got some audio")
-
+    convert_audio("voice_note.ogg", "ogg", "mp3")
+    
+    #await context.bot.send_message(chat_id=update.effective_chat.id, text="got some audio")
+    await context.bot.send_audio(chat_id=update.effective_chat.id, audio=open("media/voice_note.mp3", "rb"))
 
 msg_handler = MessageHandler(filters.TEXT, handle_message)
 test_handler = MessageHandler(filters.VOICE, test)

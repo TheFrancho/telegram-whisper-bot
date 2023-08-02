@@ -1,17 +1,9 @@
-import logging
-
 from telegram import Update
 
 from telegram.ext import (ContextTypes,
                           CommandHandler)
 
-from env import config
-
-
-# logging.basicConfig(
-#     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-#     level=logging.INFO
-# )
+from env.env import config
 
 BOT_USERNAME = config("BOT_USERNAME", default=None)
 

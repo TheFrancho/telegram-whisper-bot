@@ -1,10 +1,10 @@
 from telegram.ext import (
     Application)
 
-from env import config
-from commands import start_handler, help_handler, custom_handler,  caps_handler
-from handlers import error, msg_handler, echo_handler, test_handler
+from env.env import config
 
+from main_project.commands import start_handler, help_handler, custom_handler,  caps_handler
+from main_project.handlers import error, msg_handler, echo_handler, test_handler
 
 
 API_TOKEN = config("API_TOKEN", default=None)

@@ -1,2 +1,4 @@
 .env
 venv_testbot/
+media/
+__pycache__/
