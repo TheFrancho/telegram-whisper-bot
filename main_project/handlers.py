@@ -65,7 +65,7 @@ async def audio_to_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     converts it to mp3, sends it to the server
     """
     await update.message.reply_text("Starting transcription")
-    url_files = f"{API_BASE_URL}/savefile/"
+    url_files = f"{API_BASE_URL}/transcribe"
     print("AUDIO RECIEVED")
 
     new_file = await context.bot.get_file(update.message.voice.file_id)
@@ -89,6 +89,7 @@ async def audio_to_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print(f"MESSAGE: {transcript}")
 
     await update.message.reply_text(transcript)    
+    await update.message.reply_text("Transcription done")    
     #await context.bot.send_audio(chat_id=update.effective_chat.id, audio=open("media/voice_note.mp3", "rb"))
 
 
