@@ -3,7 +3,7 @@
 This bot recieves audio and downloads it, then changes the format from ogg to mp3 in order to be digested by Whisper.
 
 The Whisper endpoint will be other repo linked here.
-You can fin the Whisper server [here](https://github.com/TheFrancho/telegram-whisper-bot)
+You can fin the Whisper server [here](https://github.com/TheFrancho/local-whisper-fastapi)
 
 If you wish, you can use the whisper script inside ia_models if you have OpenAI tokens available instead of the local implementation.
 
